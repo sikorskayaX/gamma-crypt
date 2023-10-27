@@ -21,3 +21,23 @@ def extend_key(text, key):
         for i in range(len(text) - len(key)):
             key += key[i % len(key)]
         return key
+
+#decryption
+def decode(text, key):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    len_alphabet = len(alphabet)
+    key = extend_key(text, key)
+    decoded_text = ''
+    #making all letters lowercase
+    text.lower() 
+
+    #find the index of the current character in the alphabet and the index of the character in the key
+    #find the remainder of the division by length, because the difference can be negative
+    for i in range(len(text)):
+        x = (alphabet.index(text[i]) - alphabet.index(key[i])) % len_alphabet
+        decoded_text += alphabet[x]
+    return decoded_text
+    
+word = encode("hello", "world")
+print('encrypted text: ', word)
+print('decrypted text: ', decode(word, "world"))
