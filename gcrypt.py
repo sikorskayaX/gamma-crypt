@@ -4,7 +4,11 @@ def encode(text, key):
     len_alphabet = len(alphabet)
     key = extend_key(text, key)
     encoded_text = ''
-    text.lower() #making all letters lowercase
+    #making all letters lowercase
+    text.lower() 
+    #deleting spaces
+    text.strip()
+
     #find the index of the current character in the alphabet and the index of the character in the key
     #find the remainder of the division by length because the sum can be greater than the length of the alphabet
     for i in range(len(text)):
@@ -30,6 +34,8 @@ def decode(text, key):
     decoded_text = ''
     #making all letters lowercase
     text.lower() 
+    #deleting spaces
+    text.strip()
 
     #find the index of the current character in the alphabet and the index of the character in the key
     #find the remainder of the division by length, because the difference can be negative
